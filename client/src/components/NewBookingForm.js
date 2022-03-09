@@ -12,7 +12,9 @@ const NewBookingForm = ({ createBooking }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        const booking ={
+        if (name == "") {return } 
+        if (email == "") {return } 
+        const booking = {
             name,
             email,
             checkedIn
@@ -32,12 +34,12 @@ const NewBookingForm = ({ createBooking }) => {
           id="name" 
           value={name} 
           onChange={handleNameChange} 
-          required
+          required 
         />
   
         <label htmlFor="email">Email:</label>
         <input 
-          type="text" 
+          type="email" 
           id="email" 
           value={email} 
           onChange={handleEmailChange} 

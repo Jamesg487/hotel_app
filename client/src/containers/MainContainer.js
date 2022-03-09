@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import NewBookingForm from '../components/NewBookingForm'
+import BookingList from '../components/BookingsList'
 import BookingsService from '../services/BookingsService'
 const MainContainer = () => {
 
@@ -16,6 +17,12 @@ const MainContainer = () => {
 
     }
 
+    const updateBooking = (idToUpdate, payload) => {
+        BookingsService.putBooking(idToUpdate, payload)
+        .then (() => setBookings([...bookings ]))
+        }
+    
+
     const deleteBooking = idToDelete => {
         BookingsService.deleteBooking(idToDelete)
         .then(() => {
@@ -26,7 +33,7 @@ const MainContainer = () => {
     return(
         <>
         <NewBookingForm createBooking={createBooking} />
-        {/* <BookingList bookings={bookings} deleteBooking={deleteBooking} /> */}
+        <BookingList bookings={bookings} deleteBooking={deleteBooking} updateBooking={updateBooking} />
         </>
     )
 }

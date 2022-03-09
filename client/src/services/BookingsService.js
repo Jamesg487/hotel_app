@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:5000/api/bookings/'
+const baseURL = 'http://127.0.0.1:5000/api/bookings/'
 
  const BookingsService = {
   getBookings() {
@@ -14,6 +14,19 @@ const baseURL = 'http://localhost:5000/api/bookings/'
     })
     .then(res => res.json())
   },
+
+  putBooking(id, payload) {
+    // const newPayload = delete payload._id
+    return fetch(baseURL + id, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+
+  },
+
+
 
   deleteBooking(id) {
     return fetch(baseURL + id, {
