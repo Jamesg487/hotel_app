@@ -19,7 +19,10 @@ const MainContainer = () => {
 
     const updateBooking = (idToUpdate, payload) => {
         BookingsService.putBooking(idToUpdate, payload)
-        .then (() => setBookings([...bookings ]))
+        .then (() => {
+            BookingsService.getBookings()
+            .then(bookings => setBookings(bookings))
+        })
         }
     
 

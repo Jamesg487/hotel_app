@@ -16,7 +16,7 @@ const baseURL = 'http://127.0.0.1:5000/api/bookings/'
   },
 
   putBooking(id, payload) {
-    // const newPayload = delete payload._id
+    delete payload._id
     return fetch(baseURL + id, {
       method: 'PUT',
       body: JSON.stringify(payload),
