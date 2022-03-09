@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import NewBookingForm from '../components/NewBookingForm'
 import BookingList from '../components/BookingsList'
 import BookingsService from '../services/BookingsService'
+
 const MainContainer = () => {
 
     const [bookings, setBookings] = useState([])
@@ -34,10 +35,10 @@ const MainContainer = () => {
     }
 
     return(
-        <>
-        <NewBookingForm createBooking={createBooking} />
+        <div className='main-container'>
+        <NewBookingForm className="new-booking-form" createBooking={createBooking} />
         <BookingList bookings={bookings} deleteBooking={deleteBooking} updateBooking={updateBooking} />
-        </>
+        </div>
     )
 }
 

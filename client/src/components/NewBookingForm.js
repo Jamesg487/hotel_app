@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './NewBookingForm.css'
 
 const NewBookingForm = ({ createBooking }) => {
 
@@ -27,6 +28,7 @@ const NewBookingForm = ({ createBooking }) => {
     }
 
     return (
+      <div className="new-booking-form">
         <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input 
@@ -59,6 +61,7 @@ const NewBookingForm = ({ createBooking }) => {
   
         <input type="submit" name="submit" value="Make Booking"/>
       </form>
+      </div>
     )
 }
 
